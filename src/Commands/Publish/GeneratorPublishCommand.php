@@ -48,6 +48,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
         if ($this->option('localized')) {
             $this->publishLocaleFiles();
         }
+        $this->publishTraitsFiles();
     }
 
     /**
@@ -185,6 +186,15 @@ class GeneratorPublishCommand extends PublishBaseCommand
         $localesDir = __DIR__ . '/../../../locale/';
 
         $this->publishDirectory($localesDir, resource_path('lang'), 'lang', true);
+
+        $this->comment('Locale files published');
+    }
+
+    private function publishTraitsFiles()
+    {
+        $traitsDir = __DIR__ . '/../../../traits/';
+
+        $this->publishDirectory($traitsDir, app_path('Traits/'), 'Traits', true);
 
         $this->comment('Locale files published');
     }
