@@ -1,4 +1,8 @@
-<?php namespace fff;
+<?php 
+
+namespace $NAMESPACE_TESTS$;
+
+use Illuminate\Database\Eloquent\Model;
 
 trait ModelTestTrait
 {
@@ -13,6 +17,13 @@ trait ModelTestTrait
      * @return string
      */
     abstract protected function getModelMainPropertyKey();
+
+    /**
+     * The initialized model class
+     *
+     * @return Model
+     */
+    abstract protected function getModel();
 
     /**
      * Get the model primary key column name
@@ -34,7 +45,7 @@ trait ModelTestTrait
      */
     protected function setModelPrimaryKey()
     {
-        $this->modelPrimaryKey = (new $MODEL_NAME$)->getKeyName();
+        $this->modelPrimaryKey = $this->getModel()->getKeyName();
 
         return $this;
     }
@@ -59,7 +70,7 @@ trait ModelTestTrait
      */
     protected function setModelTable()
     {
-        $this->modelTable = (new $MODEL_NAME$)->getTableName();
+        $this->modelTable = $this->getModel()->getTable();
 
         return $this;
     }

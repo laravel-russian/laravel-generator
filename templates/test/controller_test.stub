@@ -5,6 +5,8 @@ namespace $NAMESPACE_CONTROLLERS_TESTS$;
 use Illuminate\Http\Response;
 use $NAMESPACE_MODEL$\$MODEL_NAME$;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\App;
+use Illuminate\Database\Eloquent\Model;
 use $NAMESPACE_TESTS$\TestCase;
 use $NAMESPACE_TESTS$\ModelTestTrait;
 
@@ -16,9 +18,15 @@ class $MODEL_NAME$ControllerTest extends TestCase
     const BASE_PATH = '/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$';
     const MODEL_MAIN_PROPERTY_KEY = 'name';
 
+    /**
+     * @var Model
+     */
+    protected $model;
+
     public function setUp() : void
     {
         parent::setUp();
+        $this->model = App::make($MODEL_NAME$::class);
     }
 
     /**
