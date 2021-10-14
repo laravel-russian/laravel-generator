@@ -44,9 +44,11 @@ class $MODEL_NAME$DataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom'       => 'B<"d-lg-flex justify-content-between"lf>rt<"d-lg-flex justify-content-between"ip>',
                 'stateSave' => true,
                 'order'     => [[0, 'desc']],
+                'responsive' => true,
+                'lengthMenu' => [[25, 50, 100], [25, 50, 100]],
                 'buttons'   => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
