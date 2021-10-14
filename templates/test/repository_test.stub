@@ -38,7 +38,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
      */
     public function test_create_$MODEL_NAME_SNAKE$()
     {
-        $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::factory()->make()->toArray();
+        $$MODEL_NAME_CAMEL$ = $this->givenValid$MODEL_NAME$Attributes()->toArray();
 
         $created$MODEL_NAME$ = $this->$MODEL_NAME_CAMEL$Repo->create($$MODEL_NAME_CAMEL$);
 
@@ -59,7 +59,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
      */
     public function test_read_$MODEL_NAME_SNAKE$()
     {
-        $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::factory()->create();
+        $$MODEL_NAME_CAMEL$ = $this->givenExisting$MODEL_NAME$();
 
         $db$MODEL_NAME$ = $this->$MODEL_NAME_CAMEL$Repo->find($$MODEL_NAME_CAMEL$->{$this->getModelPrimaryKey()});
 
@@ -72,8 +72,8 @@ class $MODEL_NAME$RepositoryTest extends TestCase
      */
     public function test_update_$MODEL_NAME_SNAKE$()
     {
-        $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::factory()->create();
-        $updatedData = $MODEL_NAME$::factory()->make()->toArray();
+        $$MODEL_NAME_CAMEL$ = $this->givenExisting$MODEL_NAME$();
+        $updatedData = $this->givenValid$MODEL_NAME$Attributes()->toArray();
 
         $updated$MODEL_NAME$ = $this->$MODEL_NAME_CAMEL$Repo->update(
             $updatedData, 
@@ -91,7 +91,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
      */
     public function test_delete_$MODEL_NAME_SNAKE$()
     {
-        $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::factory()->create();
+        $$MODEL_NAME_CAMEL$ = $this->givenExisting$MODEL_NAME$();
 
         $resp = $this->$MODEL_NAME_CAMEL$Repo->delete($$MODEL_NAME_CAMEL$->{$this->getModelPrimaryKey()});
 
@@ -103,6 +103,15 @@ class $MODEL_NAME$RepositoryTest extends TestCase
         ]);
     }
 
+    private function givenExisting$MODEL_NAME$()
+    {
+        return $MODEL_NAME$::factory()->create();
+    }
+
+    private function givenValid$MODEL_NAME$Attributes()
+    {
+        return $MODEL_NAME$::factory()->make();
+    }
 
     protected function getModelMainPropertyKey(): string
     {
