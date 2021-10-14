@@ -103,7 +103,8 @@ class FactoryGenerator extends BaseGenerator
             $fields[] = $fieldData;
         }
 
-        return $fields;
+        
+        return $this->setSoftDeleteFieldToNull($fields);
     }
 
     public function rollback()
@@ -111,5 +112,16 @@ class FactoryGenerator extends BaseGenerator
         if ($this->rollbackFile($this->path, $this->fileName)) {
             $this->commandData->commandComment('Factory file deleted: ' . $this->fileName);
         }
+    }
+
+    private function setSoftDeleteFieldToNull(array $fields): array
+    {
+        $softDeleteColumn = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+
+        if(array_key_exists($softDeleteColumn, $fields)){
+            $fields[$softDeleteColumn] = null;
+        }
+
+        return $fields;
     }
 }
