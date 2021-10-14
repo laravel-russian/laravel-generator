@@ -22,6 +22,16 @@ class GeneratorPublishCommand extends PublishBaseCommand
     protected $description = 'Publishes & init api routes, base controller, base test cases traits.';
 
     /**
+     * Test traits to publish
+     *
+     * @var array
+     */
+    private $testTraits = [
+        'api_test_trait' => 'ApiTestTrait',
+        'model_test_trait' => 'ModelTestTrait',
+    ];
+
+    /**
      * Execute the command.
      *
      * @return void
@@ -85,24 +95,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
     private function publishTestCases()
     {
-        $testsPath = config('infyom.laravel_generator.path.tests', base_path('tests/'));
-        $testsNameSpace = config('infyom.laravel_generator.namespace.tests', 'Tests');
-        $createdAtField = config('infyom.laravel_generator.timestamps.created_at', 'created_at');
-        $updatedAtField = config('infyom.laravel_generator.timestamps.updated_at', 'updated_at');
-
-        $templateData = get_template('test.api_test_trait', 'laravel-generator');
-
-        $templateData = str_replace('$NAMESPACE_TESTS$', $testsNameSpace, $templateData);
-        $templateData = str_replace('$TIMESTAMPS$', "['$createdAtField', '$updatedAtField']", $templateData);
-
-        $fileName = 'ApiTestTrait.php';
-
-        if (file_exists($testsPath.$fileName) && !$this->confirmOverwrite($fileName)) {
-            return;
-        }
-
-        FileUtil::createFile($testsPath, $fileName, $templateData);
-        $this->info('ApiTestTrait created');
+        $this->publishTestTraits();
 
         $testAPIsPath = config('infyom.laravel_generator.path.api_test', base_path('tests/APIs/'));
         if (!file_exists($testAPIsPath)) {
@@ -123,6 +116,30 @@ class GeneratorPublishCommand extends PublishBaseCommand
         }
     }
 
+    private function publishTestTraits()
+    {
+        $testsPath = config('infyom.laravel_generator.path.tests', base_path('tests/'));
+        $testsNameSpace = config('infyom.laravel_generator.namespace.tests', 'Tests');
+        $createdAtField = config('infyom.laravel_generator.timestamps.created_at', 'created_at');
+        $updatedAtField = config('infyom.laravel_generator.timestamps.updated_at', 'updated_at');
+
+        foreach ($this->testTraits as $stubFileName => $className) {
+
+            $templateData = get_template("test.{$stubFileName}", 'laravel-generator');
+            $templateData = str_replace('$NAMESPACE_TESTS$', $testsNameSpace, $templateData);
+            $templateData = str_replace('$TIMESTAMPS$', "['$createdAtField', '$updatedAtField']", $templateData);
+
+            $fileName = "{$className}.php";
+
+            if (file_exists("{$testsPath}.{$fileName}") && !$this->confirmOverwrite($fileName)) {
+                return;
+            }
+
+            FileUtil::createFile($testsPath, $fileName, $templateData);
+            $this->info("{$className} test trait created");
+        }
+    }
+
     private function publishBaseController()
     {
         $templateData = get_template('app_base_controller', 'laravel-generator');
@@ -133,7 +150,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
         $fileName = 'AppBaseController.php';
 
-        if (file_exists($controllerPath.$fileName) && !$this->confirmOverwrite($fileName)) {
+        if (file_exists($controllerPath . $fileName) && !$this->confirmOverwrite($fileName)) {
             return;
         }
 
@@ -154,7 +171,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
         $fileName = 'BaseRepository.php';
 
-        if (file_exists($repositoryPath.$fileName) && !$this->confirmOverwrite($fileName)) {
+        if (file_exists($repositoryPath . $fileName) && !$this->confirmOverwrite($fileName)) {
             return;
         }
 
@@ -165,7 +182,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
     private function publishLocaleFiles()
     {
-        $localesDir = __DIR__.'/../../../locale/';
+        $localesDir = __DIR__ . '/../../../locale/';
 
         $this->publishDirectory($localesDir, resource_path('lang'), 'lang', true);
 
