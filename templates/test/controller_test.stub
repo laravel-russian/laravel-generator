@@ -7,10 +7,10 @@ use $NAMESPACE_MODEL$\$MODEL_NAME$;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Model;
-use $NAMESPACE_TESTS$\TestCase;
+use $NAMESPACE_TESTS$\FeatureTestCase;
 use $NAMESPACE_TESTS$\ModelTestTrait;
 
-class $MODEL_NAME$ControllerTest extends TestCase
+class $MODEL_NAME$ControllerTest extends FeatureTestCase
 {
     use ModelTestTrait;
     use RefreshDatabase;
@@ -39,11 +39,21 @@ class $MODEL_NAME$ControllerTest extends TestCase
     }
 
     /**
+      * @group $MODEL_NAME$
+     */
+    public function test_can_access_$MODEL_NAME_SNAKE$_add_form()
+    {
+        $response = $this->get(self::BASE_PATH . "/{$this->getRessourceVerb('create')}");
+
+        $response->assertStatus(Response::HTTP_OK);
+    }
+
+    /**
      * @group $MODEL_NAME$
      */
-    public function test_can_create_$MODEL_NAME_CAMEL$()
+    public function test_can_create_$MODEL_NAME_SNAKE$()
     {
-        $data = $MODEL_NAME$::factory()->make();
+        $data = $this->givenValid$MODEL_NAME$Attributes();
         $response = $this->post(self::BASE_PATH, $data->toArray());
 
         $response->assertSessionHasNoErrors();
@@ -61,9 +71,9 @@ class $MODEL_NAME$ControllerTest extends TestCase
     /**
      * @group $MODEL_NAME$
      */
-    public function test_can_delete_$MODEL_NAME_CAMEL$()
+    public function test_can_delete_$MODEL_NAME_SNAKE$()
     {
-        $data = $MODEL_NAME$::factory()->create();
+        $data = $this->givenExisting$MODEL_NAME$();
         $response = $this->post(
             self::BASE_PATH . '/' . $data->{$this->getModelPrimaryKey()}, 
             array_merge(['_method' => 'DELETE'])
@@ -80,10 +90,26 @@ class $MODEL_NAME$ControllerTest extends TestCase
     /**
      * @group $MODEL_NAME$
      */
-    public function test_can_update_$MODEL_NAME_CAMEL$()
+    public function test_cannot_delete_non_existing_$MODEL_NAME_SNAKE$()
     {
-        $data = $MODEL_NAME$::factory()->create();
-        $updatedData = $MODEL_NAME$::factory()->make();
+        $data = $this->givenExisting$MODEL_NAME$();
+
+        $response = $this->post(
+            self::BASE_PATH . '/' . ($data->{$this->getModelPrimaryKey()} + 333),
+            array_merge(['_method' => 'DELETE'])
+        );
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_can_update_$MODEL_NAME_SNAKE$()
+    {
+        $data = $this->givenExisting$MODEL_NAME$();
+        $updatedData = $this->givenValid$MODEL_NAME$Attributes();
 
         $response = $this->post(
             self::BASE_PATH . '/' . $data->{$this->getModelPrimaryKey()}, 
@@ -101,6 +127,46 @@ class $MODEL_NAME$ControllerTest extends TestCase
                 $this->getModelMainPropertyKey() => $updatedData->{$this->getModelMainPropertyKey()},
             ]
         );
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_cannot_access_non_existing_$MODEL_NAME_SNAKE$_edit_form_()
+    {
+        $response = $this->get(self::BASE_PATH . "/123456789/{$this->getRessourceVerb('edit')}");
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_cannot_update_non_existing_$MODEL_NAME_SNAKE$()
+    {
+        $data = $this->givenExisting$MODEL_NAME$();
+        $updatedData = $this->givenValid$MODEL_NAME$Attributes();
+
+        $response = $this->post(
+            self::BASE_PATH . '/' . ($data->{$this->getModelPrimaryKey()} + 333),
+            array_merge(['_method' => 'PATCH'], $updatedData->toArray())
+        );
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    private function givenExisting$MODEL_NAME$()
+    {
+       return $MODEL_NAME$::factory()->create();
+    }
+
+    private function givenValid$MODEL_NAME$Attributes()
+    {
+       return $MODEL_NAME$::factory()->make();
     }
 
     protected function getModelMainPropertyKey()
