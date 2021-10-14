@@ -21,6 +21,7 @@ use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
 use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
 use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
 use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
+use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
 use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
 use InfyOm\Generator\Generators\SeederGenerator;
 use InfyOm\Generator\Utils\FileUtil;
@@ -134,9 +135,12 @@ class BaseCommand extends Command
         }
 
         if (!$this->isSkip('tests') and !$this->isSkip('scaffold_tests')) {
+            $testTraitsGenerator = new TestTraitsGenerator($this->commandData);
+            $testTraitsGenerator->generate();
+
             $controllerTestGenerator = new ControllerTestGenerator($this->commandData);
             $controllerTestGenerator->generate();
-            
+
             $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);
             $repositoryTestGenerator->generate();
         }
@@ -220,31 +224,31 @@ class BaseCommand extends Command
 
         foreach ($this->commandData->fields as $field) {
             $fileFields[] = [
-                'name'        => $field->name,
-                'dbType'      => $field->dbInput,
-                'htmlType'    => $field->htmlInput,
+                'name' => $field->name,
+                'dbType' => $field->dbInput,
+                'htmlType' => $field->htmlInput,
                 'validations' => $field->validations,
-                'searchable'  => $field->isSearchable,
-                'fillable'    => $field->isFillable,
-                'primary'     => $field->isPrimary,
-                'inForm'      => $field->inForm,
-                'inIndex'     => $field->inIndex,
-                'inView'      => $field->inView,
+                'searchable' => $field->isSearchable,
+                'fillable' => $field->isFillable,
+                'primary' => $field->isPrimary,
+                'inForm' => $field->inForm,
+                'inIndex' => $field->inIndex,
+                'inView' => $field->inView,
             ];
         }
 
         foreach ($this->commandData->relations as $relation) {
             $fileFields[] = [
-                'type'     => 'relation',
-                'relation' => $relation->type.','.implode(',', $relation->inputs),
+                'type' => 'relation',
+                'relation' => $relation->type . ',' . implode(',', $relation->inputs),
             ];
         }
 
         $path = config('infyom.laravel_generator.path.schema_files', resource_path('model_schemas/'));
 
-        $fileName = $this->commandData->modelName.'.json';
+        $fileName = $this->commandData->modelName . '.json';
 
-        if (file_exists($path.$fileName) && !$this->confirmOverwrite($fileName)) {
+        if (file_exists($path . $fileName) && !$this->confirmOverwrite($fileName)) {
             return;
         }
         FileUtil::createFile($path, $fileName, json_encode($fileFields, JSON_PRETTY_PRINT));
@@ -256,8 +260,8 @@ class BaseCommand extends Command
     {
         $locales = [
             'singular' => $this->commandData->modelName,
-            'plural'   => $this->commandData->config->mPlural,
-            'fields'   => [],
+            'plural' => $this->commandData->config->mPlural,
+            'fields' => [],
         ];
 
         foreach ($this->commandData->fields as $field) {
@@ -266,12 +270,12 @@ class BaseCommand extends Command
 
         $path = config('infyom.laravel_generator.path.models_locale_files', base_path('resources/lang/en/models/'));
 
-        $fileName = $this->commandData->config->mCamelPlural.'.php';
+        $fileName = $this->commandData->config->mCamelPlural . '.php';
 
-        if (file_exists($path.$fileName) && !$this->confirmOverwrite($fileName)) {
+        if (file_exists($path . $fileName) && !$this->confirmOverwrite($fileName)) {
             return;
         }
-        $content = "<?php\n\nreturn ".var_export($locales, true).';'.\PHP_EOL;
+        $content = "<?php\n\nreturn " . var_export($locales, true) . ';' . \PHP_EOL;
         FileUtil::createFile($path, $fileName, $content);
         $this->commandData->commandComment("\nModel Locale File saved: ");
         $this->commandData->commandInfo($fileName);
@@ -286,8 +290,8 @@ class BaseCommand extends Command
     protected function confirmOverwrite($fileName, $prompt = '')
     {
         $prompt = (empty($prompt))
-            ? $fileName.' already exists. Do you want to overwrite it? [y|N]'
-            : $prompt;
+        ? $fileName . ' already exists. Do you want to overwrite it? [y|N]'
+        : $prompt;
 
         return $this->confirm($prompt, false);
     }
