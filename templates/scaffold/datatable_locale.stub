@@ -45,9 +45,11 @@ class $MODEL_NAME$DataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => __('crud.action')])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'B<"d-lg-flex justify-content-between"lf>rt<"d-lg-flex justify-content-between"ip>',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
+                'order' => [[0, 'desc']],
+                'responsive' => true,
+                'lengthMenu' => [[25, 50, 100], [25, 50, 100]],
                 'buttons'   => [
                     [
                        'extend' => 'create',
@@ -75,9 +77,7 @@ class $MODEL_NAME$DataTable extends DataTable
                        'text' => '<i class="fa fa-refresh"></i> ' .__('auth.app.reload').''
                     ],
                 ],
-                 'language' => [
-                   'url' => url('//cdn.datatables.net/plug-ins/1.10.12/i18n/English.json'),
-                 ],
+               'language' => config('datatable-language')
             ]);
     }
 
