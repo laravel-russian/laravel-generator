@@ -30,8 +30,10 @@ return [
         'controller'        => app_path('Http/Controllers/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
-
+        
         'api_resource'      => app_path('Http/Resources/'),
+
+        'traits'            => app_path('Traits/'),
 
         'repository_test'   => base_path('tests/Repositories/'),
 
@@ -78,6 +80,8 @@ return [
         'request'           => 'App\Http\Requests',
 
         'api_request'       => 'App\Http\Requests\API',
+
+        'traits'            => 'App\Traits',
 
         'seeder'            => 'Database\Seeders',
 

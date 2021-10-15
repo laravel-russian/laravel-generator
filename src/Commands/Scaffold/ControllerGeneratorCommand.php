@@ -2,9 +2,10 @@
 
 namespace InfyOm\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Commands\BaseCommand;
 use InfyOm\Generator\Common\CommandData;
+use InfyOm\Generator\Commands\BaseCommand;
 use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
+use InfyOm\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
 
 class ControllerGeneratorCommand extends BaseCommand
 {
@@ -41,6 +42,8 @@ class ControllerGeneratorCommand extends BaseCommand
     {
         parent::handle();
 
+        $controllerGenerator = new CrudControllerTraitGenerator($this->commandData);
+        $controllerGenerator->generate();
         $controllerGenerator = new ControllerGenerator($this->commandData);
         $controllerGenerator->generate();
 

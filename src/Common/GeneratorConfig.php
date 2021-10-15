@@ -24,6 +24,8 @@ class GeneratorConfig
     public $nsRequestBase;
     public $nsController;
     public $nsBaseController;
+    
+    public $nsTraits;
 
     public $nsApiTests;
     public $nsRepositoryTests;
@@ -171,6 +173,8 @@ class GeneratorConfig
         $this->nsRequestBase = config('infyom.laravel_generator.namespace.request', 'App\Http\Requests');
         $this->nsBaseController = config('infyom.laravel_generator.namespace.controller', 'App\Http\Controllers');
         $this->nsController = config('infyom.laravel_generator.namespace.controller', 'App\Http\Controllers').$prefix;
+        
+        $this->nsTraits = config('infyom.laravel_generator.namespace.traits', 'App\Traits');
 
         $this->nsApiTests = config('infyom.laravel_generator.namespace.api_test', 'Tests\APIs');
         $this->nsRepositoryTests = config('infyom.laravel_generator.namespace.repository_test', 'Tests\Repositories');
@@ -277,6 +281,8 @@ class GeneratorConfig
         $commandData->addDynamicVariable('$NAMESPACE_REQUEST$', $this->nsRequest);
         $commandData->addDynamicVariable('$NAMESPACE_REQUEST_BASE$', $this->nsRequestBase);
 
+        $commandData->addDynamicVariable('$NAMESPACE_TRAITS$', $this->nsTraits);
+        
         $commandData->addDynamicVariable('$NAMESPACE_API_TESTS$', $this->nsApiTests);
         $commandData->addDynamicVariable('$NAMESPACE_REPOSITORIES_TESTS$', $this->nsRepositoryTests);
         $commandData->addDynamicVariable('$NAMESPACE_TESTS$', $this->nsTests);
