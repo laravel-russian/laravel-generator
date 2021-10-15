@@ -2,31 +2,32 @@
 
 namespace InfyOm\Generator\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APIControllerGenerator;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
-use InfyOm\Generator\Generators\API\APIResourceGenerator;
-use InfyOm\Generator\Generators\API\APIRoutesGenerator;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\FactoryGenerator;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
-use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
-use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
-use InfyOm\Generator\Generators\SeederGenerator;
+use Illuminate\Console\Command;
 use InfyOm\Generator\Utils\FileUtil;
-use Symfony\Component\Console\Input\InputArgument;
+use InfyOm\Generator\Common\CommandData;
+use InfyOm\Generator\Generators\ModelGenerator;
+use InfyOm\Generator\Generators\SeederGenerator;
 use Symfony\Component\Console\Input\InputOption;
+use InfyOm\Generator\Generators\FactoryGenerator;
+use Symfony\Component\Console\Input\InputArgument;
+use InfyOm\Generator\Generators\MigrationGenerator;
+use InfyOm\Generator\Generators\RepositoryGenerator;
+use InfyOm\Generator\Generators\API\APITestGenerator;
+use InfyOm\Generator\Generators\API\APIRoutesGenerator;
+use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
+use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
+use InfyOm\Generator\Generators\API\APIRequestGenerator;
+use InfyOm\Generator\Generators\RepositoryTestGenerator;
+use InfyOm\Generator\Generators\API\APIResourceGenerator;
+use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
+use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
+use InfyOm\Generator\Generators\API\APIControllerGenerator;
+use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
+use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
+use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
+use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
+use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
 
 class BaseCommand extends Command
 {
@@ -135,6 +136,9 @@ class BaseCommand extends Command
         }
 
         if (!$this->isSkip('tests') and !$this->isSkip('scaffold_tests')) {
+            $featureTestCaseGenerator = new FeatureTestCaseGenerator($this->commandData);
+            $featureTestCaseGenerator->generate();
+
             $testTraitsGenerator = new TestTraitsGenerator($this->commandData);
             $testTraitsGenerator->generate();
 
