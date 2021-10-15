@@ -27,6 +27,7 @@ use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
 use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
 use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
+use InfyOm\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
 use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
 
 class BaseCommand extends Command
@@ -131,6 +132,9 @@ class BaseCommand extends Command
         }
 
         if (!$this->isSkip('controllers') and !$this->isSkip('scaffold_controller')) {
+            $controllerGenerator = new CrudControllerTraitGenerator($this->commandData);
+            $controllerGenerator->generate();
+            
             $controllerGenerator = new ControllerGenerator($this->commandData);
             $controllerGenerator->generate();
         }
