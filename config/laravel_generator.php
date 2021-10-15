@@ -37,6 +37,8 @@ return [
 
         'repository_test'   => base_path('tests/Repositories/'),
 
+        'controller_test'   => base_path('tests/Controllers/'),
+
         'api_test'          => base_path('tests/APIs/'),
 
         'tests'             => base_path('tests/'),
@@ -88,6 +90,8 @@ return [
         'factory'           => 'Database\Factories',
 
         'repository_test'   => 'Tests\Repositories',
+
+        'controller_test'   => 'Tests\Controllers',
 
         'api_test'          => 'Tests\APIs',
 
