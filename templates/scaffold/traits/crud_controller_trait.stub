@@ -41,23 +41,25 @@ trait CrudControllerTrait
      * Return route from current section
      *
      * @param string $route
+     * @param array $parameters
      * @return string
      */
-    protected function getRoute(string $route): string
+    protected function getRoute(string $route, array $parameters = []): string
     {
-        return route("{$this->getBaseRoutePath()}.{$route}");
+        return route("{$this->getBaseRoutePath()}.{$route}", $parameters);
     }
 
     /**
-     * Redirect if user model is not found
-     *
-     * @return void
-     */
-    protected function notFoundRedirect()
+    * Redirect if user model is not found
+    *
+    * @param array $parameters
+    * @return void
+    */
+    protected function notFoundRedirect(array $parameters = [])
     {
         $this->getModelFlashMessage('error', 'not_found');
-
-        return redirect($this->getRoute('index'));
+    
+        return redirect($this->getRoute('index', $parameters));
     }
 
     /**
