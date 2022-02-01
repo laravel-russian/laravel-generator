@@ -1,0 +1,77 @@
+<?php 
+
+namespace $NAMESPACE_TESTS$;
+
+use Illuminate\Database\Eloquent\Model;
+
+trait ModelTestTrait
+{
+    /** @var string */
+    private $modelPrimaryKey;
+    /** @var string */
+    private $modelTable;
+
+    /**
+     * The model main property
+     *
+     * @return string
+     */
+    abstract protected function getModelMainPropertyKey();
+
+    /**
+     * The initialized model class
+     *
+     * @return Model
+     */
+    abstract protected function getModel();
+
+    /**
+     * Get the model primary key column name
+     *
+     * @return  string
+     */
+    protected function getModelPrimaryKey()
+    {
+        if (!$this->modelPrimaryKey) {
+            $this->setModelPrimaryKey();
+        }
+        return $this->modelPrimaryKey;
+    }
+
+    /**
+     * Set the value of modelPrimaryKey
+     *
+     * @return  self
+     */
+    protected function setModelPrimaryKey()
+    {
+        $this->modelPrimaryKey = $this->getModel()->getKeyName();
+
+        return $this;
+    }
+
+    /**
+     * Get model table name
+     *
+     * @return  string
+     */
+    protected function getModelTable()
+    {
+        if (!$this->modelTable) {
+            $this->setModelTable();
+        }
+        return $this->modelTable;
+    }
+
+    /**
+     * Set the value of modelTable
+     *
+     * @return  self
+     */
+    protected function setModelTable()
+    {
+        $this->modelTable = $this->getModel()->getTable();
+
+        return $this;
+    }
+}

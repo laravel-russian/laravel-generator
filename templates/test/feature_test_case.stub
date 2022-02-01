@@ -1,0 +1,35 @@
+<?php
+
+namespace $NAMESPACE_TESTS$;
+
+use Exception;
+use Illuminate\Support\Str;
+use Illuminate\Testing\TestResponse;
+use Illuminate\Support\Facades\Route;
+use $NAMESPACE_TESTS$\TestCase;
+
+abstract class FeatureTestCase extends TestCase
+{
+    protected function hasSuccessNotification(TestResponse $response)
+    {
+        $response->assertSessionHas('flash_notification.0.level', 'success');
+    }
+
+    protected function assertSessionHasNotFoundNotification(string $notFoundString = 'not found')
+    {
+        $flash = session('flash_notification')->first();
+        $this->assertEquals('danger', $flash['level']);
+        $this->assertTrue(Str::contains($flash['message'], $notFoundString));
+    }
+
+    protected function getResourceVerb(string $resource)
+    {
+        $resourcesRoutes = Route::resourceVerbs();
+
+        if (!array_key_exists($resource, $resourcesRoutes)) {
+            throw new Exception("{$resource} resource not found");
+        }
+        
+        return $resourcesRoutes[$resource];
+    }
+}

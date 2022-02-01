@@ -30,10 +30,14 @@ return [
         'controller'        => app_path('Http/Controllers/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
-
+        
         'api_resource'      => app_path('Http/Resources/'),
 
+        'traits'            => app_path('Traits/'),
+
         'repository_test'   => base_path('tests/Repositories/'),
+
+        'controller_test'   => base_path('tests/Controllers/'),
 
         'api_test'          => base_path('tests/APIs/'),
 
@@ -79,11 +83,15 @@ return [
 
         'api_request'       => 'App\Http\Requests\API',
 
+        'traits'            => 'App\Traits',
+
         'seeder'            => 'Database\Seeders',
 
         'factory'           => 'Database\Factories',
 
         'repository_test'   => 'Tests\Repositories',
+
+        'controller_test'   => 'Tests\Controllers',
 
         'api_test'          => 'Tests\APIs',
 
@@ -106,7 +114,7 @@ return [
     |
     */
 
-    'model_extend_class' => 'Eloquent',
+    'model_extend_class' => 'Illuminate\Database\Eloquent\Model',
 
     /*
     |--------------------------------------------------------------------------

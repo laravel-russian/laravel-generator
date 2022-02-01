@@ -5,62 +5,180 @@ namespace $NAMESPACE_CONTROLLERS_TESTS$;
 use Illuminate\Http\Response;
 use $NAMESPACE_MODEL$\$MODEL_NAME$;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use $NAMESPACE_TESTS$\TestCase;
+use Illuminate\Support\Facades\App;
+use Illuminate\Database\Eloquent\Model;
+use $NAMESPACE_TESTS$\FeatureTestCase;
+use $NAMESPACE_TESTS$\ModelTestTrait;
 
-class $MODEL_NAME$ControllerTest extends TestCase
+class $MODEL_NAME$ControllerTest extends FeatureTestCase
 {
+    use ModelTestTrait;
     use RefreshDatabase;
+
+    const BASE_PATH = '/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$';
+    const MODEL_MAIN_PROPERTY_KEY = 'name';
+
+    /**
+     * @var Model
+     */
+    protected $model;
 
     public function setUp() : void
     {
         parent::setUp();
+        $this->model = App::make($MODEL_NAME$::class);
     }
 
     /**
-     * @test list $MODEL_NAME_PLURAL_SNAKE$
+     * @group $MODEL_NAME$
      */
     public function test_can_list_$MODEL_NAME_PLURAL_SNAKE$()
     {
-        $response = $this->get('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$');
+        $response = $this->get(self::BASE_PATH);
         $response->assertStatus(Response::HTTP_OK);
     }
 
     /**
-     * @test create $MODEL_NAME_CAMEL$
+      * @group $MODEL_NAME$
      */
-    public function test_can_create_$MODEL_NAME_CAMEL$()
+    public function test_can_access_$MODEL_NAME_SNAKE$_add_form()
     {
-        $data = $MODEL_NAME$::factory()->make();
-        $response = $this->post('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$', $data->toArray());
-        $MODEL_NAME$::query()->firstOrFail();
-        $response->assertStatus(Response::HTTP_FOUND);
-        $response->assertRedirect('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$');
+        $response = $this->get(self::BASE_PATH . "/{$this->getRessourceVerb('create')}");
+
+        $response->assertStatus(Response::HTTP_OK);
     }
 
     /**
-     * @test delete $MODEL_NAME_CAMEL$
+     * @group $MODEL_NAME$
      */
-    public function test_can_delete_$MODEL_NAME_CAMEL$()
+    public function test_can_create_$MODEL_NAME_SNAKE$()
     {
-        $data = $MODEL_NAME$::factory()->create();
-        $response = $this->post('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$/' . $data->$PRIMARY_KEY_NAME$, array_merge(['_method' => 'DELETE']));
+        $data = $this->givenValid$MODEL_NAME$Attributes();
+        $response = $this->post(self::BASE_PATH, $data->toArray());
+
+        $response->assertSessionHasNoErrors();
         $response->assertStatus(Response::HTTP_FOUND);
-        $response->assertRedirect('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$');
-        $this->assertSoftDeleted('$MODEL_NAME_PLURAL_SNAKE$', [
-            '$PRIMARY_KEY_NAME$' => $data->$PRIMARY_KEY_NAME$
+        $response->assertRedirect(self::BASE_PATH);
+
+        $this->assertDatabaseHas(
+            $this->getModelTable(),
+            [
+                $this->getModelMainPropertyKey() => $data->{$this->getModelMainPropertyKey()},
+            ]
+        );
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_can_delete_$MODEL_NAME_SNAKE$()
+    {
+        $data = $this->givenExisting$MODEL_NAME$();
+        $response = $this->post(
+            self::BASE_PATH . '/' . $data->{$this->getModelPrimaryKey()}, 
+            array_merge(['_method' => 'DELETE'])
+        );
+       
+        $response->assertSessionHasNoErrors();
+        $response->assertStatus(Response::HTTP_FOUND);
+        $response->assertRedirect(self::BASE_PATH);
+        $this->assertSoftDeleted($this->getModelTable(), [
+            $this->getModelPrimaryKey() => $data->{$this->getModelPrimaryKey()}
         ]);
     }
 
     /**
-     * @test update $MODEL_NAME_CAMEL$
+     * @group $MODEL_NAME$
      */
-    public function test_can_update_$MODEL_NAME_CAMEL$()
+    public function test_cannot_delete_non_existing_$MODEL_NAME_SNAKE$()
     {
-        $data = $MODEL_NAME$::factory()->create();
-        $updatedData = $MODEL_NAME$::factory()->make();
+        $data = $this->givenExisting$MODEL_NAME$();
 
-        $response = $this->post('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$/' . $data->$PRIMARY_KEY_NAME$, array_merge(['_method' => 'PATCH'], $updatedData->toArray()));
+        $response = $this->post(
+            self::BASE_PATH . '/' . ($data->{$this->getModelPrimaryKey()} + 333),
+            array_merge(['_method' => 'DELETE'])
+        );
         $response->assertStatus(Response::HTTP_FOUND);
-        $response->assertRedirect('/$ROUTE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$');
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_can_update_$MODEL_NAME_SNAKE$()
+    {
+        $data = $this->givenExisting$MODEL_NAME$();
+        $updatedData = $this->givenValid$MODEL_NAME$Attributes();
+
+        $response = $this->post(
+            self::BASE_PATH . '/' . $data->{$this->getModelPrimaryKey()}, 
+            array_merge(['_method' => 'PATCH'], $updatedData->toArray())
+        );
+        
+        $response->assertSessionHasNoErrors();
+        $response->assertStatus(Response::HTTP_FOUND);
+        $response->assertRedirect(self::BASE_PATH);
+
+        $this->assertDatabaseHas(
+            $this->getModelTable(),
+            [
+                $this->getModelPrimaryKey() => $data->{$this->getModelPrimaryKey()},
+                $this->getModelMainPropertyKey() => $updatedData->{$this->getModelMainPropertyKey()},
+            ]
+        );
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_cannot_access_non_existing_$MODEL_NAME_SNAKE$_edit_form_()
+    {
+        $response = $this->get(self::BASE_PATH . "/123456789/{$this->getRessourceVerb('edit')}");
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    /**
+     * @group $MODEL_NAME$
+     */
+    public function test_cannot_update_non_existing_$MODEL_NAME_SNAKE$()
+    {
+        $data = $this->givenExisting$MODEL_NAME$();
+        $updatedData = $this->givenValid$MODEL_NAME$Attributes();
+
+        $response = $this->post(
+            self::BASE_PATH . '/' . ($data->{$this->getModelPrimaryKey()} + 333),
+            array_merge(['_method' => 'PATCH'], $updatedData->toArray())
+        );
+
+        $response->assertStatus(Response::HTTP_FOUND);
+
+        $this->assertSessionHasNotFoundNotification();
+    }
+
+    private function givenExisting$MODEL_NAME$()
+    {
+       return $MODEL_NAME$::factory()->create();
+    }
+
+    private function givenValid$MODEL_NAME$Attributes()
+    {
+       return $MODEL_NAME$::factory()->make();
+    }
+
+    protected function getModelMainPropertyKey()
+    {
+        return self::MODEL_MAIN_PROPERTY_KEY;
+    }
+
+    /**
+    * @return Model
+    */
+    protected function getModel()
+    {
+        return $this->model;
     }
 }

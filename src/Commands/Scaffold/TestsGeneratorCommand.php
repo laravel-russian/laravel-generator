@@ -2,9 +2,11 @@
 
 namespace InfyOm\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Commands\BaseCommand;
 use InfyOm\Generator\Common\CommandData;
+use InfyOm\Generator\Commands\BaseCommand;
+use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
+use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
 
 class TestsGeneratorCommand extends BaseCommand
 {
@@ -41,6 +43,10 @@ class TestsGeneratorCommand extends BaseCommand
     {
         parent::handle();
 
+        $featureTestCaseGenerator = new FeatureTestCaseGenerator($this->commandData);
+        $featureTestCaseGenerator->generate();
+        $testTraitsGenerator = new TestTraitsGenerator($this->commandData);
+        $testTraitsGenerator->generate();
         $controllerTestGenerator = new ControllerTestGenerator($this->commandData);
         $controllerTestGenerator->generate();
     }

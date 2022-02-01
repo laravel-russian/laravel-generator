@@ -27,7 +27,7 @@ class FactoryGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathFactory;
-        $this->fileName = $this->commandData->modelName.'Factory.php';
+        $this->fileName = $this->commandData->modelName . 'Factory.php';
     }
 
     public function generate()
@@ -53,7 +53,7 @@ class FactoryGenerator extends BaseGenerator
 
         $templateData = str_replace(
             '$FIELDS$',
-            implode(','.infy_nl_tab(1, 2), $this->generateFields()),
+            implode(',' . infy_nl_tab(1, 3), $this->generateFields()),
             $templateData
         );
 
@@ -72,7 +72,7 @@ class FactoryGenerator extends BaseGenerator
                 continue;
             }
 
-            $fieldData = "'".$field->name."' => ".'$this->faker->';
+            $fieldData = "'" . $field->name . "' => " . '$this->faker->';
 
             switch ($field->fieldType) {
                 case 'integer':
@@ -90,8 +90,8 @@ class FactoryGenerator extends BaseGenerator
                     $fakerData = "date('Y-m-d H:i:s')";
                     break;
                 case 'enum':
-                    $fakerData = 'randomElement('.
-                        GeneratorFieldsInputUtil::prepareValuesArrayStr($field->htmlValues).
+                    $fakerData = 'randomElement(' .
+                    GeneratorFieldsInputUtil::prepareValuesArrayStr($field->htmlValues) .
                         ')';
                     break;
                 default:
@@ -103,13 +103,25 @@ class FactoryGenerator extends BaseGenerator
             $fields[] = $fieldData;
         }
 
-        return $fields;
+        
+        return $this->setSoftDeleteFieldToNull($fields);
     }
 
     public function rollback()
     {
         if ($this->rollbackFile($this->path, $this->fileName)) {
-            $this->commandData->commandComment('Factory file deleted: '.$this->fileName);
+            $this->commandData->commandComment('Factory file deleted: ' . $this->fileName);
         }
+    }
+
+    private function setSoftDeleteFieldToNull(array $fields): array
+    {
+        $softDeleteColumn = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+
+        if(array_key_exists($softDeleteColumn, $fields)){
+            $fields[$softDeleteColumn] = null;
+        }
+
+        return $fields;
     }
 }
