@@ -34,7 +34,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_create_$MODEL_NAME_SNAKE$()
     {
@@ -55,7 +55,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_read_$MODEL_NAME_SNAKE$()
     {
@@ -68,7 +68,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_update_$MODEL_NAME_SNAKE$()
     {
@@ -87,7 +87,7 @@ class $MODEL_NAME$RepositoryTest extends TestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_delete_$MODEL_NAME_SNAKE$()
     {

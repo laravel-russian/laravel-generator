@@ -30,7 +30,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_can_list_$MODEL_NAME_PLURAL_SNAKE$()
     {
@@ -39,7 +39,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-      * @group $MODEL_NAME$
+      * @group $MODEL_NAME_SNAKE$
      */
     public function test_can_access_$MODEL_NAME_SNAKE$_add_form()
     {
@@ -49,7 +49,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_can_create_$MODEL_NAME_SNAKE$()
     {
@@ -69,7 +69,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_can_delete_$MODEL_NAME_SNAKE$()
     {
@@ -88,7 +88,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_cannot_delete_non_existing_$MODEL_NAME_SNAKE$()
     {
@@ -104,7 +104,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_can_update_$MODEL_NAME_SNAKE$()
     {
@@ -130,7 +130,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_cannot_access_non_existing_$MODEL_NAME_SNAKE$_edit_form_()
     {
@@ -142,7 +142,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
     }
 
     /**
-     * @group $MODEL_NAME$
+     * @group $MODEL_NAME_SNAKE$
      */
     public function test_cannot_update_non_existing_$MODEL_NAME_SNAKE$()
     {
