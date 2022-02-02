@@ -43,7 +43,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
      */
     public function test_can_access_$MODEL_NAME_SNAKE$_add_form()
     {
-        $response = $this->get(self::BASE_PATH . "/{$this->getRessourceVerb('create')}");
+        $response = $this->get(self::BASE_PATH . "/{$this->getResourceVerb('create')}");
 
         $response->assertStatus(Response::HTTP_OK);
     }
@@ -134,7 +134,7 @@ class $MODEL_NAME$ControllerTest extends FeatureTestCase
      */
     public function test_cannot_access_non_existing_$MODEL_NAME_SNAKE$_edit_form_()
     {
-        $response = $this->get(self::BASE_PATH . "/123456789/{$this->getRessourceVerb('edit')}");
+        $response = $this->get(self::BASE_PATH . "/123456789/{$this->getResourceVerb('edit')}");
 
         $response->assertStatus(Response::HTTP_FOUND);
 
