@@ -2,33 +2,33 @@
 
 namespace InfyOm\Generator\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
-use InfyOm\Generator\Utils\FileUtil;
+use Illuminate\Support\Str;
 use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\SeederGenerator;
-use Symfony\Component\Console\Input\InputOption;
-use InfyOm\Generator\Generators\FactoryGenerator;
-use Symfony\Component\Console\Input\InputArgument;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\API\APIRoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
-use InfyOm\Generator\Generators\API\APIResourceGenerator;
-use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
 use InfyOm\Generator\Generators\API\APIControllerGenerator;
+use InfyOm\Generator\Generators\API\APIRequestGenerator;
+use InfyOm\Generator\Generators\API\APIResourceGenerator;
+use InfyOm\Generator\Generators\API\APIRoutesGenerator;
+use InfyOm\Generator\Generators\API\APITestGenerator;
+use InfyOm\Generator\Generators\FactoryGenerator;
+use InfyOm\Generator\Generators\MigrationGenerator;
+use InfyOm\Generator\Generators\ModelGenerator;
+use InfyOm\Generator\Generators\RepositoryGenerator;
+use InfyOm\Generator\Generators\RepositoryTestGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
 use InfyOm\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
+use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
 use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
+use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
+use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
+use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
+use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
+use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
+use InfyOm\Generator\Generators\SeederGenerator;
+use InfyOm\Generator\Utils\FileUtil;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 class BaseCommand extends Command
 {
@@ -134,7 +134,7 @@ class BaseCommand extends Command
         if (!$this->isSkip('controllers') and !$this->isSkip('scaffold_controller')) {
             $controllerGenerator = new CrudControllerTraitGenerator($this->commandData);
             $controllerGenerator->generate();
-            
+
             $controllerGenerator = new ControllerGenerator($this->commandData);
             $controllerGenerator->generate();
         }
@@ -276,7 +276,7 @@ class BaseCommand extends Command
             $locales['fields'][$field->name] = Str::title(str_replace('_', ' ', $field->name));
         }
 
-        $path = config('infyom.laravel_generator.path.models_locale_files', base_path('resources/lang/en/models/'));
+        $path = config('infyom.laravel_generator.path.models_locale_files', lang_path('en/models/'));
 
         $fileName = $this->commandData->config->mCamelPlural . '.php';
 

@@ -7,55 +7,57 @@ return [
     | Paths
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'path' => [
 
-        'migration'         => database_path('migrations/'),
+        'migration' => database_path('migrations/'),
 
-        'model'             => app_path('Models/'),
+        'model' => app_path('Models/'),
 
-        'datatables'        => app_path('DataTables/'),
+        'models_locale_files' => lang_path('en/models/'),
 
-        'repository'        => app_path('Repositories/'),
+        'datatables' => app_path('DataTables/'),
 
-        'routes'            => base_path('routes/web.php'),
+        'repository' => app_path('Repositories/'),
 
-        'api_routes'        => base_path('routes/api.php'),
+        'routes' => base_path('routes/web.php'),
 
-        'request'           => app_path('Http/Requests/'),
+        'api_routes' => base_path('routes/api.php'),
 
-        'api_request'       => app_path('Http/Requests/API/'),
+        'request' => app_path('Http/Requests/'),
 
-        'controller'        => app_path('Http/Controllers/'),
+        'api_request' => app_path('Http/Requests/API/'),
 
-        'api_controller'    => app_path('Http/Controllers/API/'),
-        
-        'api_resource'      => app_path('Http/Resources/'),
+        'controller' => app_path('Http/Controllers/'),
 
-        'traits'            => app_path('Traits/'),
+        'api_controller' => app_path('Http/Controllers/API/'),
 
-        'repository_test'   => base_path('tests/Repositories/'),
+        'api_resource' => app_path('Http/Resources/'),
 
-        'controller_test'   => base_path('tests/Controllers/'),
+        'traits' => app_path('Traits/'),
 
-        'api_test'          => base_path('tests/APIs/'),
+        'repository_test' => base_path('tests/Repositories/'),
 
-        'tests'             => base_path('tests/'),
+        'controller_test' => base_path('tests/Controllers/'),
 
-        'views'             => resource_path('views/'),
+        'api_test' => base_path('tests/APIs/'),
 
-        'schema_files'      => resource_path('model_schemas/'),
+        'tests' => base_path('tests/'),
 
-        'templates_dir'     => resource_path('infyom/infyom-generator-templates/'),
+        'views' => resource_path('views/'),
 
-        'seeder'            => database_path('seeders/'),
+        'schema_files' => resource_path('model_schemas/'),
 
-        'database_seeder'   => database_path('seeders/DatabaseSeeder.php'),
+        'templates_dir' => resource_path('infyom/infyom-generator-templates/'),
 
-        'factory'           => database_path('factories/'),
+        'seeder' => database_path('seeders/'),
 
-        'view_provider'     => app_path('Providers/ViewServiceProvider.php'),
+        'database_seeder' => database_path('seeders/DatabaseSeeder.php'),
+
+        'factory' => database_path('factories/'),
+
+        'view_provider' => app_path('Providers/ViewServiceProvider.php'),
     ],
 
     /*
@@ -63,39 +65,39 @@ return [
     | Namespaces
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'namespace' => [
 
-        'model'             => 'App\Models',
+        'model' => 'App\Models',
 
-        'datatables'        => 'App\DataTables',
+        'datatables' => 'App\DataTables',
 
-        'repository'        => 'App\Repositories',
+        'repository' => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers',
+        'controller' => 'App\Http\Controllers',
 
-        'api_controller'    => 'App\Http\Controllers\API',
+        'api_controller' => 'App\Http\Controllers\API',
 
-        'api_resource'      => 'App\Http\Resources',
+        'api_resource' => 'App\Http\Resources',
 
-        'request'           => 'App\Http\Requests',
+        'request' => 'App\Http\Requests',
 
-        'api_request'       => 'App\Http\Requests\API',
+        'api_request' => 'App\Http\Requests\API',
 
-        'traits'            => 'App\Traits',
+        'traits' => 'App\Traits',
 
-        'seeder'            => 'Database\Seeders',
+        'seeder' => 'Database\Seeders',
 
-        'factory'           => 'Database\Factories',
+        'factory' => 'Database\Factories',
 
-        'repository_test'   => 'Tests\Repositories',
+        'repository_test' => 'Tests\Repositories',
 
-        'controller_test'   => 'Tests\Controllers',
+        'controller_test' => 'Tests\Controllers',
 
-        'api_test'          => 'Tests\APIs',
+        'api_test' => 'Tests\APIs',
 
-        'tests'             => 'Tests',
+        'tests' => 'Tests',
     ],
 
     /*
@@ -103,16 +105,16 @@ return [
     | Templates
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
-    'templates'         => 'adminlte-templates',
+    'templates' => 'adminlte-templates',
 
     /*
     |--------------------------------------------------------------------------
     | Model extend class
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'model_extend_class' => 'Illuminate\Database\Eloquent\Model',
 
@@ -121,9 +123,9 @@ return [
     | API routes prefix & version
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
-    'api_prefix'  => 'api',
+    'api_prefix' => 'api',
 
     'api_version' => 'v1',
 
@@ -132,7 +134,7 @@ return [
     | Options
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'options' => [
 
@@ -156,15 +158,15 @@ return [
     | Prefixes
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'prefixes' => [
 
-        'route' => '',  // using admin will create route('admin.?.index') type routes
+        'route' => '', // using admin will create route('admin.?.index') type routes
 
         'path' => '',
 
-        'view' => '',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => '', // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
@@ -174,21 +176,21 @@ return [
     | Add-Ons
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'add_on' => [
 
-        'swagger'       => false,
+        'swagger' => false,
 
-        'tests'         => true,
+        'tests' => true,
 
-        'datatables'    => false,
+        'datatables' => false,
 
-        'menu'          => [
+        'menu' => [
 
-            'enabled'       => true,
+            'enabled' => true,
 
-            'menu_file'     => 'layouts/menu.blade.php',
+            'menu_file' => 'layouts/menu.blade.php',
         ],
     ],
 
@@ -197,17 +199,17 @@ return [
     | Timestamp Fields
     |--------------------------------------------------------------------------
     |
-    */
+     */
 
     'timestamps' => [
 
-        'enabled'       => true,
+        'enabled' => true,
 
-        'created_at'    => 'created_at',
+        'created_at' => 'created_at',
 
-        'updated_at'    => 'updated_at',
+        'updated_at' => 'updated_at',
 
-        'deleted_at'    => 'deleted_at',
+        'deleted_at' => 'deleted_at',
     ],
 
     /*
@@ -215,7 +217,7 @@ return [
     | Save model files to `App/Models` when use `--prefix`. see #208
     |--------------------------------------------------------------------------
     |
-    */
+     */
     'ignore_model_prefix' => false,
 
     /*
@@ -223,7 +225,7 @@ return [
     | Specify custom doctrine mappings as per your need
     |--------------------------------------------------------------------------
     |
-    */
+     */
     'from_table' => [
 
         'doctrine_mappings' => [],
