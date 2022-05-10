@@ -27,4 +27,4 @@ Add this entry in `composer.json` :
     ],
 ```
 
-Then, run `composer require infyomlabs/laravel-generator:laravel9`
+Then, run `composer require infyomlabs/laravel-generator:dev-laravel9`
