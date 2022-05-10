@@ -2,8 +2,8 @@
 
 namespace $NAMESPACE_MODEL$;
 
-use $NAMESPACE_MODEL_EXTEND$ as Model;
 $SOFT_DELETE_IMPORT$
+use Illuminate\Database\Eloquent\Model;
 $HAS_FACTORY_IMPORT$
 
 $DOCS$
