@@ -35,9 +35,9 @@ trait ApiTestTrait
     private function getFullTimeStamps(): array
     {
         return array(
-            config('infyom.laravel_generator.timestamps.created_at', 'created_at'),
-            config('infyom.laravel_generator.timestamps.updated_at', 'updated_at'),
-            config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at'),
+            config('laravel-russian.laravel_generator.timestamps.created_at', 'created_at'),
+            config('laravel-russian.laravel_generator.timestamps.updated_at', 'updated_at'),
+            config('laravel-russian.laravel_generator.timestamps.deleted_at', 'deleted_at'),
         );
     }
 }

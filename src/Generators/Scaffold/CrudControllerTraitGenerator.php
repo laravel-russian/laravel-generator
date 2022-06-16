@@ -20,7 +20,7 @@ class CrudControllerTraitGenerator extends BaseGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->path = config('infyom.laravel_generator.path.traits', (app_path('Traits/')));
+        $this->path = config('laravel-russian.laravel_generator.path.traits', (app_path('Traits/')));
     }
 
     public function generate()

@@ -187,7 +187,7 @@ class CommandData
             }
         }
 
-        if (config('infyom.laravel_generator.timestamps.enabled', true)) {
+        if (config('laravel-russian.laravel_generator.timestamps.enabled', true)) {
             $this->addTimestamps();
         }
     }
@@ -233,7 +233,7 @@ class CommandData
                     $filePath = base_path($fieldsFileValue);
                 } else {
                     $schemaFileDirector = config(
-                        'infyom.laravel_generator.path.schema_files',
+                        'laravel-russian.laravel_generator.path.schema_files',
                         resource_path('model_schemas/')
                     );
                     $filePath = $schemaFileDirector.$fieldsFileValue;

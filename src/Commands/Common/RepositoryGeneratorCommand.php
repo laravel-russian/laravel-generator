@@ -13,7 +13,7 @@ class RepositoryGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:repository';
+    protected $name = 'laravel-russian:repository';
 
     /**
      * The console command description.

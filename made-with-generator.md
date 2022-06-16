@@ -3,8 +3,8 @@
 List of Websites/Project using using LaravelRussian Laravel Generator.
 Comment on this [issue](https://github.com/InfyOmLabs/laravel-generator/issues/630) to get your project added here.
 
-- [LaravelRussian Blog](https://blog.infyom.com/)
-- [InfyTracker](http://labs.infyom.com/infy-tracker)
+- [LaravelRussian Blog](https://blog.laravel-russian.com/)
+- [InfyTracker](http://labs.laravel-russian.com/infy-tracker)
 - [Kavlinge Zoo](http://kavlingezoo.se/)
 - [TinkerTool](https://www.tinkertool.in/)
 - [Reantamchet](https://reantamchet.com/)

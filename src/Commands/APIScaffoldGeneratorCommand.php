@@ -12,7 +12,7 @@ class APIScaffoldGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:api_scaffold';
+    protected $name = 'laravel-russian:api_scaffold';
 
     /**
      * The console command description.

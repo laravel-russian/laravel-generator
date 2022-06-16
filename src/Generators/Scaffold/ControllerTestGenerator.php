@@ -20,7 +20,7 @@ class ControllerTestGenerator extends BaseGenerator
     public function __construct($commandData)
     {
         $this->commandData = $commandData;
-        $this->path = config('infyom.laravel_generator.path.controller_tests', base_path('tests/Controllers/'));
+        $this->path = config('laravel-russian.laravel_generator.path.controller_tests', base_path('tests/Controllers/'));
         $this->fileName = $this->commandData->modelName.'ControllerTest.php';
     }
 

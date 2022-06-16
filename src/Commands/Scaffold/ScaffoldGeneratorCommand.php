@@ -13,7 +13,7 @@ class ScaffoldGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:scaffold';
+    protected $name = 'laravel-russian:scaffold';
 
     /**
      * The console command description.

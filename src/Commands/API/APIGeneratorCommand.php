@@ -13,7 +13,7 @@ class APIGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:api';
+    protected $name = 'laravel-russian:api';
 
     /**
      * The console command description.

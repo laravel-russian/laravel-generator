@@ -14,7 +14,7 @@ class TestsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.api:tests';
+    protected $name = 'laravel-russian.api:tests';
 
     /**
      * The console command description.

@@ -35,7 +35,7 @@ class RollbackGeneratorCommand extends Command
      *
      * @var string
      */
-    protected $name = 'infyom:rollback';
+    protected $name = 'laravel-russian:rollback';
     /**
      * The console command description.
      *

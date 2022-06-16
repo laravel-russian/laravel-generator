@@ -14,7 +14,7 @@ class ControllerGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.scaffold:controller';
+    protected $name = 'laravel-russian.scaffold:controller';
 
     /**
      * The console command description.

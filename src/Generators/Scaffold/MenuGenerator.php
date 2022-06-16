@@ -27,12 +27,12 @@ class MenuGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = config(
-            'infyom.laravel_generator.path.views',
+            'laravel-russian.laravel_generator.path.views',
             resource_path(
                 'views/'
             )
         ).$commandData->getAddOn('menu.menu_file');
-        $this->templateType = config('infyom.laravel_generator.templates', 'adminlte-templates');
+        $this->templateType = config('laravel-russian.laravel_generator.templates', 'adminlte-templates');
 
         $this->menuContents = file_get_contents($this->path);
 

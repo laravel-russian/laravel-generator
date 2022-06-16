@@ -116,7 +116,7 @@ class FactoryGenerator extends BaseGenerator
 
     private function setSoftDeleteFieldToNull(array $fields): array
     {
-        $softDeleteColumn = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+        $softDeleteColumn = config('laravel-russian.laravel_generator.timestamps.deleted_at', 'deleted_at');
 
         if(array_key_exists($softDeleteColumn, $fields)){
             $fields[$softDeleteColumn] = null;

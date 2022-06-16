@@ -49,7 +49,7 @@ return [
 
         'schema_files' => resource_path('model_schemas/'),
 
-        'templates_dir' => resource_path('infyom/infyom-generator-templates/'),
+        'templates_dir' => resource_path('laravel-russian/laravel-russian-generator-templates/'),
 
         'seeder' => database_path('seeders/'),
 

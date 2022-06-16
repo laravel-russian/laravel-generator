@@ -13,7 +13,7 @@ class RequestsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.scaffold:requests';
+    protected $name = 'laravel-russian.scaffold:requests';
 
     /**
      * The console command description.

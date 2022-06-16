@@ -13,7 +13,7 @@ class ModelGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:model';
+    protected $name = 'laravel-russian:model';
 
     /**
      * The console command description.

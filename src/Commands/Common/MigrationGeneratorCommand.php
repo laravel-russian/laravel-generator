@@ -13,7 +13,7 @@ class MigrationGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:migration';
+    protected $name = 'laravel-russian:migration';
 
     /**
      * The console command description.

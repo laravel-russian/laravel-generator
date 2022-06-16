@@ -9,7 +9,7 @@ class PublishTemplateCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:templates';
+    protected $name = 'laravel-russian.publish:templates';
 
     /**
      * The console command description.
@@ -28,8 +28,8 @@ class PublishTemplateCommand extends PublishBaseCommand
     public function handle()
     {
         $this->templatesDir = config(
-            'infyom.laravel_generator.path.templates_dir',
-            resource_path('infyom/infyom-generator-templates/')
+            'laravel-russian.laravel_generator.path.templates_dir',
+            resource_path('laravel-russian/laravel-russian-generator-templates/')
         );
 
         if ($this->publishGeneratorTemplates()) {
@@ -45,7 +45,7 @@ class PublishTemplateCommand extends PublishBaseCommand
     {
         $templatesPath = __DIR__.'/../../../templates';
 
-        return $this->publishDirectory($templatesPath, $this->templatesDir, 'infyom-generator-templates');
+        return $this->publishDirectory($templatesPath, $this->templatesDir, 'laravel-russian-generator-templates');
     }
 
     /**
@@ -53,11 +53,11 @@ class PublishTemplateCommand extends PublishBaseCommand
      */
     public function publishScaffoldTemplates()
     {
-        $templateType = config('infyom.laravel_generator.templates', 'adminlte-templates');
+        $templateType = config('laravel-russian.laravel_generator.templates', 'adminlte-templates');
 
         $templatesPath = get_templates_package_path($templateType).'/templates/scaffold';
 
-        return $this->publishDirectory($templatesPath, $this->templatesDir.'scaffold', 'infyom-generator-templates/scaffold', true);
+        return $this->publishDirectory($templatesPath, $this->templatesDir.'scaffold', 'laravel-russian-generator-templates/scaffold', true);
     }
 
     /**

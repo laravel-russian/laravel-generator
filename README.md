@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://assets.infyom.com/open-source/infyom-logo.png" alt="LaravelRussian"></h1>
+<h1 align="center"><img src="https://assets.laravel-russian.com/open-source/laravel-russian-logo.png" alt="LaravelRussian"></h1>
 
 # LaravelRussian Laravel Generator
 
@@ -11,7 +11,7 @@ Generate Admin Panels CRUDs and APIs in Minutes with tons of other features and 
 
 ## Documentation
 
-Read [Documentation](https://www.infyom.com/open-source) for detailed installation steps and usage.
+Read [Documentation](https://www.laravel-russian.com/open-source) for detailed installation steps and usage.
 
 ## Inclusion in IM projects
 

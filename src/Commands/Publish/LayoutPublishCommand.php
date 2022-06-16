@@ -13,7 +13,7 @@ class LayoutPublishCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:layout';
+    protected $name = 'laravel-russian.publish:layout';
 
     /**
      * The console command description.
@@ -35,8 +35,8 @@ class LayoutPublishCommand extends PublishBaseCommand
 
     private function copyView()
     {
-        $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'adminlte-templates');
+        $viewsPath = config('laravel-russian.laravel_generator.path.views', resource_path('views/'));
+        $templateType = config('laravel-russian.laravel_generator.templates', 'adminlte-templates');
 
         $this->createDirectories($viewsPath);
 
@@ -118,7 +118,7 @@ class LayoutPublishCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $controllerPath = config('infyom.laravel_generator.path.controller', app_path('Http/Controllers/'));
+        $controllerPath = config('laravel-russian.laravel_generator.path.controller', app_path('Http/Controllers/'));
 
         $fileName = 'HomeController.php';
 
@@ -142,13 +142,13 @@ class LayoutPublishCommand extends PublishBaseCommand
     {
         $templateData = str_replace(
             '$NAMESPACE_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.controller'),
+            config('laravel-russian.laravel_generator.namespace.controller'),
             $templateData
         );
 
         $templateData = str_replace(
             '$NAMESPACE_REQUEST$',
-            config('infyom.laravel_generator.namespace.request'),
+            config('laravel-russian.laravel_generator.namespace.request'),
             $templateData
         );
 
