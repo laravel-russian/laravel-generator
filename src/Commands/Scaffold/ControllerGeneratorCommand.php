@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Scaffold;
+namespace LaravelRussian\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Generators\Scaffold\ControllerGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
 
 class ControllerGeneratorCommand extends BaseCommand
 {

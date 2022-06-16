@@ -2,7 +2,7 @@
 
 namespace Tests\Utils;
 
-use InfyOm\Generator\Utils\ResponseUtil;
+use LaravelRussian\Generator\Utils\ResponseUtil;
 use PHPUnit\Framework\TestCase;
 
 class ResponseUtilTest extends TestCase

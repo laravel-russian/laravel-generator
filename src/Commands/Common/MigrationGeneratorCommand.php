@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Common;
+namespace LaravelRussian\Generator\Commands\Common;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\MigrationGenerator;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\MigrationGenerator;
 
 class MigrationGeneratorCommand extends BaseCommand
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\API;
+namespace LaravelRussian\Generator\Generators\API;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\BaseGenerator;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class APITestGenerator extends BaseGenerator
 {

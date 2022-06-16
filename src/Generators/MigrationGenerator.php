@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
 use File;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
 use SplFileInfo;
 
 class MigrationGenerator extends BaseGenerator

@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace LaravelRussian\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\BaseGenerator;
 
 class MenuGenerator extends BaseGenerator
 {

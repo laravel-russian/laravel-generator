@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Request;
+namespace LaravelRussian\Generator\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
-use InfyOm\Generator\Utils\ResponseUtil;
+use LaravelRussian\Generator\Utils\ResponseUtil;
 use Response;
 
 class APIRequest extends FormRequest

@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace LaravelRussian\Generator\Commands\Publish;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputOption;
 
 class LayoutPublishCommand extends PublishBaseCommand

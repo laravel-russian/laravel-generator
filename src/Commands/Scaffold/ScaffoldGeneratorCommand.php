@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Scaffold;
+namespace LaravelRussian\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class ScaffoldGeneratorCommand extends BaseCommand
 {

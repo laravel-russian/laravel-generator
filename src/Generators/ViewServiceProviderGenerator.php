@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
 use File;
-use InfyOm\Generator\Common\CommandData;
+use LaravelRussian\Generator\Common\CommandData;
 
 /**
  * Class ViewServiceProviderGenerator.

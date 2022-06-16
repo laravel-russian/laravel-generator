@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\API;
+namespace LaravelRussian\Generator\Commands\API;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class APIGeneratorCommand extends BaseCommand
 {

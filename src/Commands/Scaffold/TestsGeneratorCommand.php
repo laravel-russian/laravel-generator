@@ -1,12 +1,12 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Scaffold;
+namespace LaravelRussian\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Generators\Scaffold\TestTraitsGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\ControllerTestGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
 
 class TestsGeneratorCommand extends BaseCommand
 {

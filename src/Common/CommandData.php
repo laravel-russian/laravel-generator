@@ -1,17 +1,17 @@
 <?php
 
-namespace InfyOm\Generator\Common;
+namespace LaravelRussian\Generator\Common;
 
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Events\GeneratorFileCreated;
-use InfyOm\Generator\Events\GeneratorFileCreating;
-use InfyOm\Generator\Events\GeneratorFileDeleted;
-use InfyOm\Generator\Events\GeneratorFileDeleting;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\GeneratorFieldsInputUtil;
-use InfyOm\Generator\Utils\TableFieldsGenerator;
+use LaravelRussian\Generator\Events\GeneratorFileCreated;
+use LaravelRussian\Generator\Events\GeneratorFileCreating;
+use LaravelRussian\Generator\Events\GeneratorFileDeleted;
+use LaravelRussian\Generator\Events\GeneratorFileDeleting;
+use LaravelRussian\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Utils\GeneratorFieldsInputUtil;
+use LaravelRussian\Generator\Utils\TableFieldsGenerator;
 
 class CommandData
 {

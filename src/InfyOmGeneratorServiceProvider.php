@@ -1,25 +1,25 @@
 <?php
 
-namespace InfyOm\Generator;
+namespace LaravelRussian\Generator;
 
 use Illuminate\Support\ServiceProvider;
-use InfyOm\Generator\Commands\API\APIControllerGeneratorCommand;
-use InfyOm\Generator\Commands\API\APIGeneratorCommand;
-use InfyOm\Generator\Commands\API\APIRequestsGeneratorCommand;
-use InfyOm\Generator\Commands\API\TestsGeneratorCommand;
-use InfyOm\Generator\Commands\APIScaffoldGeneratorCommand;
-use InfyOm\Generator\Commands\Common\MigrationGeneratorCommand;
-use InfyOm\Generator\Commands\Common\ModelGeneratorCommand;
-use InfyOm\Generator\Commands\Common\RepositoryGeneratorCommand;
-use InfyOm\Generator\Commands\Publish\GeneratorPublishCommand;
-use InfyOm\Generator\Commands\Publish\LayoutPublishCommand;
-use InfyOm\Generator\Commands\Publish\PublishTemplateCommand;
-use InfyOm\Generator\Commands\Publish\PublishUserCommand;
-use InfyOm\Generator\Commands\RollbackGeneratorCommand;
-use InfyOm\Generator\Commands\Scaffold\ControllerGeneratorCommand;
-use InfyOm\Generator\Commands\Scaffold\RequestsGeneratorCommand;
-use InfyOm\Generator\Commands\Scaffold\ScaffoldGeneratorCommand;
-use InfyOm\Generator\Commands\Scaffold\ViewsGeneratorCommand;
+use LaravelRussian\Generator\Commands\API\APIControllerGeneratorCommand;
+use LaravelRussian\Generator\Commands\API\APIGeneratorCommand;
+use LaravelRussian\Generator\Commands\API\APIRequestsGeneratorCommand;
+use LaravelRussian\Generator\Commands\API\TestsGeneratorCommand;
+use LaravelRussian\Generator\Commands\APIScaffoldGeneratorCommand;
+use LaravelRussian\Generator\Commands\Common\MigrationGeneratorCommand;
+use LaravelRussian\Generator\Commands\Common\ModelGeneratorCommand;
+use LaravelRussian\Generator\Commands\Common\RepositoryGeneratorCommand;
+use LaravelRussian\Generator\Commands\Publish\GeneratorPublishCommand;
+use LaravelRussian\Generator\Commands\Publish\LayoutPublishCommand;
+use LaravelRussian\Generator\Commands\Publish\PublishTemplateCommand;
+use LaravelRussian\Generator\Commands\Publish\PublishUserCommand;
+use LaravelRussian\Generator\Commands\RollbackGeneratorCommand;
+use LaravelRussian\Generator\Commands\Scaffold\ControllerGeneratorCommand;
+use LaravelRussian\Generator\Commands\Scaffold\RequestsGeneratorCommand;
+use LaravelRussian\Generator\Commands\Scaffold\ScaffoldGeneratorCommand;
+use LaravelRussian\Generator\Commands\Scaffold\ViewsGeneratorCommand;
 
 class InfyOmGeneratorServiceProvider extends ServiceProvider
 {

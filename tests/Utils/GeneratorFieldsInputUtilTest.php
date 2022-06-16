@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use InfyOm\Generator\Utils\GeneratorFieldsInputUtil;
+use LaravelRussian\Generator\Utils\GeneratorFieldsInputUtil;
 use PHPUnit\Framework\TestCase;
 
 class GeneratorFieldsInputUtilTest extends TestCase

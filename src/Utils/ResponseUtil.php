@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\Generator\Utils;
+namespace LaravelRussian\Generator\Utils;
 
 class ResponseUtil
 {

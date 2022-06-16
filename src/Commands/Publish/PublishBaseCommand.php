@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace LaravelRussian\Generator\Commands\Publish;
 
 use File;
-use InfyOm\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Commands\BaseCommand;
 
 class PublishBaseCommand extends BaseCommand
 {

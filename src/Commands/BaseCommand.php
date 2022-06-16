@@ -1,32 +1,32 @@
 <?php
 
-namespace InfyOm\Generator\Commands;
+namespace LaravelRussian\Generator\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APIControllerGenerator;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
-use InfyOm\Generator\Generators\API\APIResourceGenerator;
-use InfyOm\Generator\Generators\API\APIRoutesGenerator;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\FactoryGenerator;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
-use InfyOm\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
-use InfyOm\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
-use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\TestTraitsGenerator;
-use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
-use InfyOm\Generator\Generators\SeederGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\API\APIControllerGenerator;
+use LaravelRussian\Generator\Generators\API\APIRequestGenerator;
+use LaravelRussian\Generator\Generators\API\APIResourceGenerator;
+use LaravelRussian\Generator\Generators\API\APIRoutesGenerator;
+use LaravelRussian\Generator\Generators\API\APITestGenerator;
+use LaravelRussian\Generator\Generators\FactoryGenerator;
+use LaravelRussian\Generator\Generators\MigrationGenerator;
+use LaravelRussian\Generator\Generators\ModelGenerator;
+use LaravelRussian\Generator\Generators\RepositoryGenerator;
+use LaravelRussian\Generator\Generators\RepositoryTestGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\ControllerGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\ControllerTestGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\CrudControllerTraitGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\FeatureTestCaseGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\JQueryDatatableAssetsGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\MenuGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\RequestGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\RoutesGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\TestTraitsGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\ViewGenerator;
+use LaravelRussian\Generator\Generators\SeederGenerator;
+use LaravelRussian\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

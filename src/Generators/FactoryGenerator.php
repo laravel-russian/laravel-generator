@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\GeneratorFieldsInputUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Utils\GeneratorFieldsInputUtil;
 
 /**
  * Class FactoryGenerator.

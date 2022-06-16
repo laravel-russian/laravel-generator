@@ -1,14 +1,14 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace LaravelRussian\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Generators\ViewServiceProviderGenerator;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\HTMLFieldGenerator;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\BaseGenerator;
+use LaravelRussian\Generator\Generators\ViewServiceProviderGenerator;
+use LaravelRussian\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Utils\HTMLFieldGenerator;
 
 class ViewGenerator extends BaseGenerator
 {

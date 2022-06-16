@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class RepositoryGenerator extends BaseGenerator
 {

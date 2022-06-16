@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands;
+namespace LaravelRussian\Generator\Commands;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class APIScaffoldGeneratorCommand extends BaseCommand
 {

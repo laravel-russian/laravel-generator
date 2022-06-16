@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
-use InfyOm\Generator\Common\GeneratorField;
+use LaravelRussian\Generator\Common\GeneratorField;
 
 class SwaggerGenerator
 {

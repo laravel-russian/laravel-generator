@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace LaravelRussian\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
+use LaravelRussian\Generator\Common\CommandData;
 
 class RoutesGenerator
 {

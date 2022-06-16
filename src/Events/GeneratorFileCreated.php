@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\Generator\Events;
+namespace LaravelRussian\Generator\Events;
 
 use Illuminate\Queue\SerializesModels;
 

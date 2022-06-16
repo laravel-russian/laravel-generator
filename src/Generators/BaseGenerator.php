@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace LaravelRussian\Generator\Generators;
 
-use InfyOm\Generator\Utils\FileUtil;
+use LaravelRussian\Generator\Utils\FileUtil;
 
 class BaseGenerator
 {

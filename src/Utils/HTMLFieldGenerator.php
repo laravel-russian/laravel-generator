@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Utils;
+namespace LaravelRussian\Generator\Utils;
 
-use InfyOm\Generator\Common\GeneratorField;
+use LaravelRussian\Generator\Common\GeneratorField;
 
 class HTMLFieldGenerator
 {

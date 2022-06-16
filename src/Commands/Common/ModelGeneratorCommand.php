@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Common;
+namespace LaravelRussian\Generator\Commands\Common;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\ModelGenerator;
+use LaravelRussian\Generator\Commands\BaseCommand;
+use LaravelRussian\Generator\Common\CommandData;
+use LaravelRussian\Generator\Generators\ModelGenerator;
 
 class ModelGeneratorCommand extends BaseCommand
 {
