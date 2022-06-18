@@ -50,7 +50,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "\\LaravelRussian\\Generator\\InfyOmGeneratorServiceProvider"
+        "\\LaravelRussian\\Generator\\LaravelRussianGeneratorServiceProvider"
       ]
     }
   },
