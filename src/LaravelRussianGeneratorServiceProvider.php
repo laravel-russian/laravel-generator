@@ -21,7 +21,7 @@ use LaravelRussian\Generator\Commands\Scaffold\RequestsGeneratorCommand;
 use LaravelRussian\Generator\Commands\Scaffold\ScaffoldGeneratorCommand;
 use LaravelRussian\Generator\Commands\Scaffold\ViewsGeneratorCommand;
 
-class InfyOmGeneratorServiceProvider extends ServiceProvider
+class LaravelRussianGeneratorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
