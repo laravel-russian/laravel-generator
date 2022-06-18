@@ -18,6 +18,8 @@ use LaravelRussian\Generator\Generators\Scaffold\MenuGenerator;
 use LaravelRussian\Generator\Generators\Scaffold\RequestGenerator;
 use LaravelRussian\Generator\Generators\Scaffold\RoutesGenerator;
 use LaravelRussian\Generator\Generators\Scaffold\ViewGenerator;
+use LaravelRussian\Generator\Generators\Scaffold\ControllerTestGenerator;
+
 use LaravelRussian\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -123,21 +125,24 @@ class RollbackGeneratorCommand extends Command
         $routeGenerator = new RoutesGenerator($this->commandData);
         $routeGenerator->rollback();
 
-        if ($this->commandData->getAddOn('tests')) {
+        // if ($this->commandData->getAddOn('tests')) {
             $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);
             $repositoryTestGenerator->rollback();
 
             $apiTestGenerator = new APITestGenerator($this->commandData);
             $apiTestGenerator->rollback();
-        }
+
+            $controllerTestGenerator = new ControllerTestGenerator($this->commandData);
+            $controllerTestGenerator->rollback();
+        // }
 
         $factoryGenerator = new FactoryGenerator($this->commandData);
         $factoryGenerator->rollback();
 
-        if ($this->commandData->config->getAddOn('menu.enabled')) {
+        // if ($this->commandData->config->getAddOn('menu.enabled')) {
             $menuGenerator = new MenuGenerator($this->commandData);
             $menuGenerator->rollback();
-        }
+        // }
 
         $this->info('Generating autoload files');
         $this->composer->dumpOptimized();
