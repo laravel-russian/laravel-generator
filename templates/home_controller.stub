@@ -4,6 +4,13 @@ namespace $NAMESPACE_CONTROLLER$;
 
 use Illuminate\Http\Request;
 
+
+/**
+ * @OA\Get(
+ *     path="/home",
+ *     @OA\Response(response="200", description="Display home.")
+ * )
+ */
 class HomeController extends Controller
 {
     /**
