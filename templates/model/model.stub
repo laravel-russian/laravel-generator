@@ -18,6 +18,7 @@ $CONNECTION$
 $PRIMARY$
     public $fillable = [
         'created_at',
+        'updated_at',
         $FIELDS$
     ];
 
