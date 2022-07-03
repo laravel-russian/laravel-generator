@@ -11,7 +11,15 @@ class $MODEL_NAME$ extends Model
 {
 $SOFT_DELETE$
 $HAS_FACTORY$
+
+    // config/database.php => connection
+    // public $connection = 'mysql';
     public $table = '$TABLE_NAME$';
+    // public $primaryKey = 'id';
+    // public $keyType = 'int';
+    // public $incrementing = true;
+    // public $perPage = 15;
+
     $TIMESTAMPS$
 $SOFT_DELETE_DATES$
 $CONNECTION$
