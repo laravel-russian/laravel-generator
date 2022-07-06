@@ -27,3 +27,31 @@ Add this entry in `composer.json` :
 ```
 
 Then, run `composer require laravel-russian/laravel-generator:dev-laravel9`
+
+```
+laravel-russian:api_scaffold
+    [--fieldsFile FIELDSFILE]
+    [--jsonFromGUI JSONFROMGUI]
+    [--plural PLURAL]
+    [--tableName TABLENAME]
+    [--fromTable]
+    [--ignoreFields IGNOREFIELDS]
+    [--save]
+    [--primary PRIMARY]
+    [--prefix PREFIX]
+    [--paginate PAGINATE]
+    [--skip SKIP]
+    [--datatables DATATABLES]
+    [--views VIEWS]
+    [--relations]
+    [--softDelete]
+    [--forceMigrate]
+    [--factory]
+    [--seeder]
+    [--localized]
+    [--repositoryPattern REPOSITORYPATTERN]
+    [--resources RESOURCES]
+    [--connection CONNECTION]
+    [--jqueryDT]
+    [--] <model>
+```
